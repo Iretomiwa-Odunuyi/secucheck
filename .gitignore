@@ -48,6 +48,6 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-.env/
+.env
 node_modules/
 .git/

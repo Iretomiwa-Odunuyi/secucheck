@@ -58,6 +58,22 @@ Runs on http://localhost:5173 and talks to the backend automatically.
       restarts and scales past a demo
 - [ ] Deploy: frontend → Vercel, backend → Render (or similar). Set
       `VITE_API_BASE` in the client's environment to your deployed backend URL
+
+## Deploying to Vercel
+
+Create two Vercel projects from this repository:
+
+1. Import the repository as the frontend project, set **Root Directory** to
+      `client`, and add `VITE_API_BASE` with the URL of the deployed backend.
+2. Import the repository again as the backend project, set **Root Directory**
+      to `server`, and add `MISTRAL_API_KEY` and a production `DATABASE_URL`.
+3. The backend project automatically uses `api/index.js` as its serverless
+      function. Set the frontend's `VITE_API_BASE` to that backend project's URL,
+      then redeploy the frontend.
+
+The current storage fallback keeps the API usable without PostgreSQL, but
+Vercel serverless instances are temporary. Use a hosted PostgreSQL database
+for persistent submissions and run the Prisma migration before production use.
 - [ ] Decide on your anonymization stance explicitly (fully anonymous vs.
       session-only) and document it — this is something a lecturer grading
       the Awareness/Policy overlap may ask about directly

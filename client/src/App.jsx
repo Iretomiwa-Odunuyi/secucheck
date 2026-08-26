@@ -11,7 +11,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1 onClick={() => setView("home")} style={{ cursor: "pointer" }}>
-          SecuCheck
+          Check IT
         </h1>
         <nav>
           <button className={view === "submit" ? "active" : ""} onClick={() => setView("submit")}>
